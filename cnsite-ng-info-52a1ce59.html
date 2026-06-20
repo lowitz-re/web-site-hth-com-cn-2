@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NG体育 · 故事从专注开始</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f6f2;
+            font-family: 'Segoe UI', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            color: #2e2b28;
+            line-height: 1.75;
+            padding: 2rem 1rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 760px;
+            width: 100%;
+        }
+
+        /* 开场短句 —— 像一句轻声开场 */
+        .opening {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            color: #4d443f;
+            margin-top: 2.8rem;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #b7a69a;
+            padding-left: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .opening small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #8c7d72;
+            margin-top: 0.3rem;
+            letter-spacing: 0.06em;
+        }
+
+        /* 承接段落 —— 像展开一张纸 */
+        .lead {
+            background: #ffffffda;
+            backdrop-filter: blur(2px);
+            padding: 1.6rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02), 0 0 0 1px #ebe5de;
+            margin: 1.8rem 0 2.2rem;
+            font-size: 1.05rem;
+        }
+
+        .lead p {
+            margin-bottom: 1rem;
+        }
+
+        .lead p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 引用块 / 提示框 */
+        .insight {
+            background: #f2ede6;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0;
+            border-left: 6px solid #b7a69a;
+            font-style: normal;
+            box-shadow: inset 0 0 0 1px #e2d8cf;
+        }
+
+        .insight strong {
+            display: block;
+            font-weight: 600;
+            color: #3f3732;
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .insight p {
+            margin: 0.2rem 0;
+        }
+
+        /* 特点列表 —— 干净、留白、像笔记 */
+        .feature-list {
+            margin: 2.5rem 0 1.8rem;
+            list-style: none;
+        }
+
+        .feature-list li {
+            background: #ffffff;
+            margin-bottom: 1rem;
+            padding: 1.2rem 1.8rem;
+            border-radius: 14px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 0 0 1px #ebe5de;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-list li::before {
+            content: "▹";
+            color: #b7a69a;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            flex-shrink: 0;
+        }
+
+        .feature-list li span {
+            display: block;
+            font-weight: 500;
+            color: #3f3732;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-list li p {
+            margin: 0;
+            color: #5c534b;
+            font-size: 0.95rem;
+        }
+
+        /* 温和结尾 + 链接嵌入 */
+        .closing {
+            margin-top: 3rem;
+            padding: 1.8rem 2rem;
+            background: #ffffffcc;
+            backdrop-filter: blur(2px);
+            border-radius: 20px;
+            border: 1px solid #e2d8cf;
+            font-size: 1rem;
+        }
+
+        .closing p {
+            margin-bottom: 0.8rem;
+        }
+
+        .closing p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: #725b4a;
+            text-decoration: none;
+            border-bottom: 1px solid #d4c6ba;
+            transition: border-color 0.2s, color 0.2s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #3f2f26;
+            border-bottom-color: #3f2f26;
+        }
+
+        /* 小装饰线 */
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: #d9cdc0;
+            margin: 2rem auto 1.5rem;
+            border-radius: 4px;
+            opacity: 0.5;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body { padding: 1.2rem 0.8rem 3rem; }
+            .opening { font-size: 1.6rem; padding-left: 1rem; }
+            .lead { padding: 1.2rem 1.2rem; }
+            .feature-list li { padding: 1rem 1.2rem; flex-wrap: wrap; }
+            .closing { padding: 1.4rem 1.2rem; }
+            .insight { padding: 1.2rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        有些名字，念出来就知道背后有故事。
+        <small>—— 比如 NG体育，一直专注在运动与内容交织的那条线上。</small>
+    </div>
+
+    <!-- 承接段落：从关键词背后的主题内容展开 -->
+    <div class="lead">
+        <p>
+            体育从来不只是比分和奖牌。它包含训练场上的重复、战术板上的推演、以及观看时那种心照不宣的紧张感。
+            <strong>NG体育</strong> 这个名字，最初就是从这些真实的细节里长出来的——想给那些认真对待运动的人，一个信息足够扎实、节奏又不会太吵的角落。
+        </p>
+        <p>
+            从赛事解读到日常训练思路，从装备使用的个人经验到运动心理的朴素观察，这个站点慢慢积累了一批不赶热点、但愿意把一件事聊透的内容。没有夸张的标题，也没有“必看”“震惊”，更像是一个你坐下来能翻很久的笔记本。
+        </p>
+    </div>
+
+    <!-- 特点列表：干净，像整理过的笔记条目 -->
+    <ul class="feature-list">
+        <li>
+            <div>
+                <span>内容思路：偏重原由与过程</span>
+                <p>不只告诉你“怎么做”，更试着讲清楚“为什么这么做”。每个训练动作、每个战术选择背后都有它的逻辑，NG体育 喜欢把这些逻辑拆开来讲。</p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>叙事节奏：不急不躁</span>
+                <p>一篇文章可以读十分钟，也可以分两天慢慢看。没有倒计时弹窗，没有浮夸的动效，页面把空间留给文字和必要的配图。</p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>运动场景：从场地到屏幕</span>
+                <p>无论是户外跑、球场对抗，还是居家力量训练，内容会覆盖不同场景下的真实体验，也会讨论如何用简单的方法减少运动损伤。</p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>读者互动：安静但有效</span>
+                <p>评论区更像一个讨论区，大家分享自己的训练调整、恢复心得，偶尔有争议但始终就事论事。这种交流氛围，是 NG体育 很珍视的部分。</p>
+            </div>
+        </li>
+    </ul>
+
+    <!-- 引用块 / 提示框：像夹在页面里的一张便签 -->
+    <div class="insight">
+        <strong>一个小提示</strong>
+        <p>如果你正好在寻找一个不浮躁的运动内容源，可以花点时间看看 <a href="https://cnsite--ng.com">NG体育</a> 的文章——尤其那些关于基础动作打磨和训练周期安排的篇章，写得认真，也值得慢慢读。</p>
+        <p>这里没有“七天速成”的承诺，但有持续更新的真诚记录。</p>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>
+            体育的魅力，常常藏在这些具体的、诚实的叙述里。不管是刚起步的运动爱好者，还是已经坚持多年的实践者，<a href="https://cnsite--ng.com">NG体育</a> 都提供了一个可以安静参考的空间。
+        </p>
+        <p>
+            没有终点线，也没有倒计时。有的只是一个个被认真写下来的故事、方法，以及下一次踏上场地时，心里多了一点底。
+        </p>
+        <div class="divider"></div>
+        <p style="font-size: 0.9rem; color: #7b6f64;">
+            如果你愿意，可以从任意一篇文章开始读。不必从头，也不必一次读完。
+        </p>
+    </div>
+
+    <!-- 极简脚注，保持干净 -->
+    <div style="margin-top: 3rem; font-size: 0.8rem; color: #b1a49a; text-align: center; border-top: 1px solid #e2d8cf; padding-top: 1.8rem;">
+        内容取向 · 运动 · 训练 · 叙事
+    </div>
+
+</div>
+</body>
+</html>
