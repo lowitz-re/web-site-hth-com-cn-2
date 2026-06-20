@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游 · 游戏服务导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #fde6c8 0%, #fbd5b5 50%, #f8c4a0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem 3rem;
+            color: #2e241e;
+            line-height: 1.6;
+        }
+
+        .page-wrap {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.8rem;
+            background: rgba(255, 248, 240, 0.7);
+            backdrop-filter: blur(6px);
+            border-radius: 60px;
+            box-shadow: 0 4px 12px rgba(140, 80, 40, 0.08);
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .logo-area {
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            color: #7a4c2c;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5c3d2b;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b67c56;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 10px 30px -8px rgba(100, 60, 30, 0.12);
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card-soft {
+            background: rgba(255, 250, 245, 0.75);
+            backdrop-filter: blur(4px);
+        }
+
+        /* hero区 */
+        .hero-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #4d2e1b;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: #5f3f2b;
+            max-width: 85%;
+        }
+
+        .hero-desc {
+            margin-top: 0.4rem;
+            font-size: 1rem;
+            color: #3f2d20;
+            border-left: 3px solid #d99c74;
+            padding-left: 1rem;
+        }
+
+        /* 场景模块 (三列) */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0 1.8rem;
+        }
+
+        .scene-item {
+            background: #faf2ea;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem 1.8rem;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 10px rgba(110, 65, 35, 0.06);
+        }
+
+        .scene-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #4f311e;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .scene-item p {
+            font-size: 0.95rem;
+            color: #3d2b1e;
+            margin-bottom: 0.2rem;
+        }
+
+        .scene-num {
+            background: #dbaa83;
+            color: #2a1b12;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 40px;
+            padding: 0.1rem 0.7rem;
+            display: inline-block;
+            margin-right: 0.2rem;
+        }
+
+        /* 常见说明 紧凑样式 */
+        .faq-compact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e4d3c4;
+            padding: 0.6rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #3a261b;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #4a3526;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #8f5d3b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        .faq-a a:hover {
+            color: #b3744a;
+        }
+
+        /* 内嵌链接样式 (用于句子中) */
+        .inline-link {
+            color: #8f5d3b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+            transition: 0.1s;
+        }
+
+        .inline-link:hover {
+            color: #b3744a;
+            text-decoration: underline;
+        }
+
+        /* 圆角按钮感觉的链接 */
+        .btn-link {
+            display: inline-block;
+            background: #f0e0d0;
+            color: #3f2b1d;
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.15s;
+            box-shadow: 0 2px 6px rgba(130, 75, 40, 0.08);
+            font-size: 0.95rem;
+        }
+
+        .btn-link:hover {
+            background: #e7d2bc;
+            box-shadow: 0 4px 12px rgba(140, 82, 40, 0.12);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.2rem 0 0.2rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #5d4533;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            border-top: 1px solid #dcc9b8;
+            padding-top: 1.5rem;
+            opacity: 0.8;
+        }
+
+        /* 响应式 */
+        @media (max-width: 780px) {
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-sub {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1.6rem 1.4rem;
+            }
+
+            .top-nav {
+                padding: 0.6rem 1.2rem;
+                border-radius: 40px;
+            }
+
+            .hero-desc {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1.2rem 0.8rem 2rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+            }
+
+            .btn-link {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .scene-item {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo-area">
+            <span class="logo-icon">🎮</span> 九游·指南
+        </div>
+        <div class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">场景</a>
+            <a href="#">帮助</a>
+        </div>
+    </nav>
+
+    <!-- Hero 核心介绍 -->
+    <div class="card hero-wrap">
+        <h1 class="hero-title">九游 · 稳定服务说明</h1>
+        <div class="hero-sub">面向玩家的常用入口与页面指引</div>
+        <div class="hero-desc">
+            这里整理了关于 <a href="https://register-9game.com" class="inline-link">九游官网</a> 的基本信息、常见使用场景以及页面功能摘要。
+            内容基于日常使用整理，方便快速了解各模块的定位与访问方式。
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 style="font-weight: 600; font-size: 1.5rem; color: #422f21; margin: 0 0 0.6rem 0;">常用场景</h2>
+    <div class="scenes-grid">
+        <div class="scene-item">
+            <h3><span class="scene-num">1</span> 账号相关</h3>
+            <p>账号注册、信息管理及安全设置。通过 <a href="https://register-9game.com" class="inline-link">九游官网</a> 可进入个人中心，查看基本资料与绑定状态。</p>
+        </div>
+        <div class="scene-item">
+            <h3><span class="scene-num">2</span> 游戏查找</h3>
+            <p>浏览游戏列表、查看详情与专区内容。官网提供分类筛选，方便寻找感兴趣的游戏。</p>
+        </div>
+        <div class="scene-item">
+            <h3><span class="scene-num">3</span> 客服与帮助</h3>
+            <p>常见问题自助查询、联系客服渠道。相关入口整合在官网的帮助中心内。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) + 提示 -->
+    <div class="card">
+        <h2 style="font-size: 1.4rem; font-weight: 600; color: #3b291d; margin-bottom: 1rem;">常见说明</h2>
+        <div class="faq-compact">
+            <div class="faq-item">
+                <div class="faq-q">▎ 如何确认当前页面来源？</div>
+                <div class="faq-a">建议直接从浏览器地址栏输入 <a href="https://register-9game.com" class="inline-link">九游官网</a> 域名，或使用已收藏的官方链接。避免通过非正规渠道跳转。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▎ 页面功能是否有变化？</div>
+                <div class="faq-a">官网各模块会根据运营需要调整，但核心入口保持稳定。可关注页面内导航栏及帮助说明区域。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▎ 忘记账号或遇到登录问题？</div>
+                <div class="faq-a">请使用官网的账号找回功能，或联系客服并提供注册信息。切勿向他人泄露密码。</div>
+            </div>
+        </div>
+
+        <!-- 附加提示 + 圆角按钮感链接 -->
+        <div style="margin-top: 1.8rem; background: #f7ede3; padding: 1rem 1.4rem; border-radius: 30px;">
+            <p style="font-weight: 500; margin-bottom: 0.4rem; color: #3f2c1e;">📌 页面提示</p>
+            <p style="font-size: 0.95rem; color: #3e2d20;">本站仅作介绍参考，实际操作请以 <a href="https://register-9game.com" class="inline-link">九游官网</a> 页面为准。建议定期清除浏览器缓存以保证页面正常显示。</p>
+            <div class="btn-group">
+                <a href="https://register-9game.com" class="btn-link">九游官网</a>
+                <a href="#" class="btn-link" style="background: #e6d6c6;">更多帮助</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        本页为轻量导航说明 · 内容基于公开信息整理 · 无诱导性描述
+    </div>
+</div>
+</body>
+</html>
